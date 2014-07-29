@@ -35,7 +35,7 @@ public interface BaseDao<T extends Identifiable> {
      * 
      * @param query
      *            查询参数，如果未null则查询所有，相当于调用方法
-     *            {@link com.viathink.frame.core.dao.BaseDao.selectAll }
+     *            {@link com.janus.myapp.frame.core.dao.BaseDao.selectAll }
      * @return 结果对象列表
      * @date 2014年3月3日下午5:43:33
      */

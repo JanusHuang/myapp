@@ -1,5 +1,7 @@
 package com.janus.myweb.sys.enums;
 
+import com.janus.myapp.frame.core.enums.BaseEnum;
+
 public enum EnumDictionaryType implements BaseEnum {
 	DIR("目录"), DATA("数据");
 

@@ -1,4 +1,4 @@
-package com.janus.myweb.sys.enums;
+package com.janus.myapp.frame.core.enums;
 
 public interface BaseEnum {
 	/**

@@ -87,10 +87,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         return UUIDUtils.create();
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#selectOne(java.io.Serializable)
+
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#selectOne(com.janus.myapp.frame.core.domain.Identifiable)
      */
     @Override
     public <V extends T> V selectOne(T query) {
@@ -105,10 +104,8 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#selectById(java.io.Serializable)
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#selectById(java.lang.String)
      */
     @Override
     public <V extends T> V selectById(String id) {
@@ -122,10 +119,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#selectList(java.io.Serializable)
+    
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#selectList(com.janus.myapp.frame.core.domain.Identifiable)
      */
     @Override
     public <V extends T> List<V> selectList(T query) {
@@ -139,10 +135,8 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#selectAll()
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#selectAll()
      */
     @Override
     public <V extends T> List<V> selectAll() {
@@ -154,11 +148,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#selectMap(java.io.Serializable,
-     * java.lang.String)
+   
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#selectMap(com.janus.myapp.frame.core.domain.Identifiable, java.lang.String)
      */
     @Override
     public <K, V extends T> Map<K, V> selectMap(T query, String mapKey) {
@@ -207,12 +199,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         return params;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * com.viathink.core.dao.BaseDao#selectList(com.viathink.core.dao.domain
-     * .Identifiable, org.springframework.data.domain.Pageable)
+    
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#selectList(com.janus.myapp.frame.core.domain.Identifiable, org.springframework.data.domain.Pageable)
      */
     @Override
     public <V extends T> List<V> selectList(T query, Pageable pageable) {
@@ -225,12 +214,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * com.viathink.core.dao.BaseDao#selectPageList(com.viathink.core.dao.domain
-     * .Identifiable, org.springframework.data.domain.Pageable)
+   
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#selectPageList(com.janus.myapp.frame.core.domain.Identifiable, org.springframework.data.domain.Pageable)
      */
     @Override
     public <V extends T> Page<V> selectPageList(T query, Pageable pageable) {
@@ -245,12 +231,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * com.viathink.core.dao.BaseDao#selectMap(com.viathink.core.dao.domain.
-     * Identifiable, java.lang.String, org.springframework.data.domain.Pageable)
+   
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#selectMap(com.janus.myapp.frame.core.domain.Identifiable, java.lang.String, org.springframework.data.domain.Pageable)
      */
     @Override
     public <K, V extends T> Map<K, V> selectMap(T query, String mapKey,
@@ -264,10 +247,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#selectCount()
+   
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#selectCount()
      */
     @Override
     public Long selectCount() {
@@ -280,10 +262,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#selectCount(java.io.Serializable)
+    
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#selectCount(com.janus.myapp.frame.core.domain.Identifiable)
      */
     @Override
     public Long selectCount(T query) {
@@ -297,10 +278,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#insert(java.io.Serializable)
+  
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#insert(com.janus.myapp.frame.core.domain.Identifiable)
      */
     @Override
     public void insert(T entity) {
@@ -315,10 +295,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#delete(java.io.Serializable)
+  
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#delete(com.janus.myapp.frame.core.domain.Identifiable)
      */
     @Override
     public int delete(T query) {
@@ -333,10 +312,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#deleteById(java.io.Serializable)
+    
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#deleteById(java.lang.String)
      */
     @Override
     public int deleteById(String id) {
@@ -350,10 +328,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#deleteAll()
+    
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#deleteAll()
      */
     @Override
     public int deleteAll() {
@@ -365,10 +342,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#updateById(java.io.Serializable)
+    
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#updateById(com.janus.myapp.frame.core.domain.Identifiable)
      */
     @Override
     public int updateById(T entity) {
@@ -382,11 +358,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * com.viathink.core.dao.BaseDao#updateByIdSelective(java.io.Serializable)
+    
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#updateByIdSelective(com.janus.myapp.frame.core.domain.Identifiable)
      */
     @Override
     @Transactional
@@ -401,10 +375,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#deleteByIdInBatch(java.util.List)
+    
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#deleteByIdInBatch(java.util.List)
      */
     @Override
     @Transactional
@@ -416,10 +389,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#updateInBatch(java.util.List)
+   
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#updateInBatch(java.util.List)
      */
     @Override
     @Transactional
@@ -431,10 +403,9 @@ public abstract class BaseDaoImpl<T extends Identifiable> implements BaseDao<T> 
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.viathink.core.dao.BaseDao#insertInBatch(java.util.List)
+ 
+    /* (non-Javadoc)
+     * @see com.janus.myapp.frame.core.dao.BaseDao#insertInBatch(java.util.List)
      */
     @Override
     public void insertInBatch(List<T> entityList) {
