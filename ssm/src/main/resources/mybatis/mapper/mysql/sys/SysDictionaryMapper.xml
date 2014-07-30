@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.janus.myweb.sys.domain.SysDictionary">
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"
+        readOnly="true" />
+
+    <resultMap id="BaseResultMap"
+        type="com.janus.myweb.sys.domain.vo.SysDictionaryVo">
+        <id column="DIC_ID" property="dicId" jdbcType="VARCHAR" />
+        <result column="DIC_NAME" property="dicName" jdbcType="VARCHAR" />
+        <result column="DIC_VALUE" property="dicValue" jdbcType="VARCHAR" />
+        <result column="DIC_GROUP" property="dicGroup" jdbcType="VARCHAR" />
+        <result column="DIC_TYPE" property="dicType" jdbcType="VARCHAR" />
+        <result column="DIC_ORDER" property="dicOrder" jdbcType="INTEGER" />
+        <result column="DIC_STATUS" property="dicStatus"
+            jdbcType="VARCHAR" />
+        <result column="DIC_PARENT_ID" property="dicParentId"
+            jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        DIC_ID as dicId,
+        DIC_NAME as dicName,
+        DIC_VALUE as dicValue,
+        DIC_GROUP as dicGroup,
+        DIC_TYPE as dicType,
+        DIC_ORDER as dicOrder,
+        DIC_STATUS as dicStatus,
+        DIC_PARENT_ID as dicParentId
+    </sql>
+
+
+    <sql id="Base_Where_Clause">
+        <where>
+            <trim prefixOverrides="and">
+                <if test="dicId != null"> and DIC_ID = #{dicId}</if>
+                <if test="dicName != null">and DIC_NAME = #{dicName}</if>
+                <if test="dicValue != null">and DIC_VALUE = #{dicValue}</if>
+                <if test="dicGroup != null">and DIC_GROUP = #{dicGroup}</if>
+                <if test="dicType != null">and DIC_TYPE = #{dicType}</if>
+                <if test="dicOrder != null">and DIC_ORDER = #{dicOrder}</if>
+                <if test="dicStatus != null">and DIC_STATUS = #{dicStatus}</if>
+                <if test="dicParentId != null">and DIC_PARENT_ID = #{dicParentId}</if>
+
+                <!-- 模糊查询 -->
+                <if test="dicNameLike != null">and DIC_NAME like
+                    CONCAT("%",#{dicNameLike},"%")</if>
+                <if test="dicGroupLike != null">and DIC_GROUP like
+                    CONCAT("%",#{dicGroupLike},"%")</if>
+            </trim>
+        </where>
+        <if test="sorting != null">order by ${sorting}</if>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </sql>
+
+    <!-- 查询总数 -->
+    <select id="selectCount" resultType="java.lang.Long"
+        parameterType="java.util.Map">
+        select count(DIC_ID)
+        from SYS_DICTIONARY
+        <include refid="Base_Where_Clause" />
+    </select>
+
+    <!-- 查询 -->
+    <select id="select" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List" />
+        from SYS_DICTIONARY
+        <include refid="Base_Where_Clause" />
+    </select>
+
+    <!-- 根据ID查询 -->
+    <select id="selectById" resultMap="BaseResultMap"
+        parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from SYS_DICTIONARY
+        where DIC_ID = #{dicId}
+    </select>
+
+    <!-- 根据ID删除 -->
+    <delete id="deleteById" parameterType="java.lang.String">
+        delete from SYS_DICTIONARY
+        where DIC_ID = #{dicId}
+    </delete>
+
+    <!-- 删除 -->
+    <delete id="delete" parameterType="java.util.Map">
+        delete from SYS_DICTIONARY
+        <include refid="Base_Where_Clause" />
+    </delete>
+
+    <!-- 添加 -->
+    <insert id="insert" parameterType="com.janus.myweb.sys.domain.SysDictionary">
+        insert into SYS_DICTIONARY(
+        DIC_ID,
+        DIC_NAME,
+        DIC_VALUE,
+        DIC_GROUP,
+        DIC_TYPE,
+        DIC_ORDER,
+        DIC_STATUS,
+        DIC_PARENT_ID
+        )
+        values (
+        #{dicId},
+        #{dicName},
+        #{dicValue},
+        #{dicGroup},
+        #{dicType},
+        #{dicOrder},
+        #{dicStatus},
+        #{dicParentId}
+        )
+    </insert>
+
+
+    <!-- 通过ID更新 -->
+    <update id="updateByIdSelective" parameterType="com.janus.myweb.sys.domain.SysDictionary">
+        update SYS_DICTIONARY
+        <set>
+            <if test="dicName != null">DIC_NAME = #{dicName},</if>
+            <if test="dicValue != null">DIC_VALUE = #{dicValue},</if>
+            <if test="dicGroup != null">DIC_GROUP = #{dicGroup},</if>
+            <if test="dicType != null">DIC_TYPE = #{dicType},</if>
+            <if test="dicOrder != null">DIC_ORDER = #{dicOrder},</if>
+            <if test="dicStatus != null">DIC_STATUS = #{dicStatus},</if>
+            <if test="dicParentId != null">DIC_PARENT_ID = #{dicParentId},</if>
+        </set>
+        where DIC_ID = #{dicId}
+    </update>
+
+    <update id="updateById" parameterType="com.janus.myweb.sys.domain.SysDictionary">
+        update SYS_DICTIONARY
+        set DIC_NAME = #{dicName},
+        DIC_VALUE = #{dicValue},
+        DIC_GROUP = #{dicGroup},
+        DIC_TYPE = #{dicType},
+        DIC_ORDER = #{dicOrder},
+        DIC_STATUS = #{dicStatus},
+        DIC_PARENT_ID = #{dicParentId}
+        where DIC_ID = #{dicId}
+    </update>
+
+</mapper>
